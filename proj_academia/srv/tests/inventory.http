@@ -21,8 +21,8 @@ POST http://localhost:4004/odata/v4/inventory/Products
 Content-Type: application/json
 
 {
-  "ID": "22222222-2222-2222-2222-222222222222",
-  "name": "Leite de Aveia",
+  "ID": "22222222-2222-2222-2222-222222222223",
+  "name": "Leite de Soja",
   "category": "Bebidas",
   "currentStock": 30,
   "minStock": 5

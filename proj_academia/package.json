@@ -7,11 +7,20 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2"
+    "@cap-js/sqlite": "^2.0.4"
   },
   "scripts": {
     "start": "cds-serve",
     "kill_port": "kill -9 $(lsof -t -i:4004)"
   },
-  "private": true
+  "private": true,
+  "cds": {
+    "requires": {
+      "db": {
+      "kind": "sqlite",
+      "credentials": { "url": "db.sqlite" },
+      "schema_evolution": "auto"
+   }
+    }
+  }
 }
