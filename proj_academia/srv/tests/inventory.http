@@ -1,0 +1,77 @@
+### 🧾 Ver serviços disponíveis
+GET http://localhost:4004/odata/v4/inventory/
+
+### 📦 Listar todos os produtos
+GET http://localhost:4004/odata/v4/inventory/Products
+
+### ➕ Criar um novo produto
+POST http://localhost:4004/odata/v4/inventory/Products
+Content-Type: application/json
+
+{
+  "ID": "11111111-1111-1111-1111-111111111111",
+  "name": "Maçã Biológica",
+  "category": "Fruta",
+  "currentStock": 50,
+  "minStock": 10
+}
+
+### ➕ Criar outro produto
+POST http://localhost:4004/odata/v4/inventory/Products
+Content-Type: application/json
+
+{
+  "ID": "22222222-2222-2222-2222-222222222222",
+  "name": "Leite de Aveia",
+  "category": "Bebidas",
+  "currentStock": 30,
+  "minStock": 5
+}
+
+### 🧺 Listar todas as entradas de stock
+GET http://localhost:4004/odata/v4/inventory/StockEntries
+
+### ➕ Criar uma entrada de stock
+POST http://localhost:4004/odata/v4/inventory/StockEntries
+Content-Type: application/json
+
+{
+  "ID": "33333333-3333-3333-3333-333333333333",
+  "type": "Entrada",
+  "quantity": 20,
+  "date": "2025-10-27T10:00:00Z",
+  "product_ID": "11111111-1111-1111-1111-111111111111"
+}
+
+### ➕ Criar uma saída de stock
+POST http://localhost:4004/odata/v4/inventory/StockEntries
+Content-Type: application/json
+
+{
+  "ID": "44444444-4444-4444-4444-444444444444",
+  "type": "Saida",
+  "quantity": 5,
+  "date": "2025-10-27T12:00:00Z",
+  "product_ID": "11111111-1111-1111-1111-111111111111"
+}
+
+### 👥 Listar fornecedores
+GET http://localhost:4004/odata/v4/inventory/Suppliers
+
+### ➕ Criar um fornecedor
+POST http://localhost:4004/odata/v4/inventory/Suppliers
+Content-Type: application/json
+
+{
+  "ID": "55555555-5555-5555-5555-555555555555",
+  "name": "BioFornecedores Lda",
+  "contact": "bio@fornecedores.pt"
+}
+
+### ✏️ Atualizar um produto (exemplo: mudar o stock atual)
+PATCH http://localhost:4004/odata/v4/inventory/Products(11111111-1111-1111-1111-111111111111)
+Content-Type: application/json
+
+{
+  "currentStock": 42
+}
