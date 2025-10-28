@@ -1,21 +1,40 @@
 namespace eco;
-using { cuid } from '@sap/cds/common';
+using { cuid, managed } from '@sap/cds/common';
 
-entity Product : cuid {
-    name : String;
-    category : String;
-    currentStock : Integer;
-    minStock : Integer; // Pode não ser aqui que eu guardo esta info
+@label: '{i18n>Product}'
+entity Product : cuid, managed {
+    @title: '{i18n>Product-name}'
+    name          : String;
+
+    @title: '{i18n>Product-category}'
+    category      : String;
+
+    @title: '{i18n>Product-currentStock}'
+    currentStock  : Integer;
+
+    @title: '{i18n>Product-minStock}'
+    minStock      : Integer;
 }
 
-entity StockEntry : cuid {
-    type : String enum { Entrada; Saída; };
-    quantity : Integer;
-    date : DateTime;
-    product : Association to Product;
+@label: '{i18n>StockEntry}'
+entity StockEntry : cuid, managed {
+    @title: '{i18n>StockEntry-type}'
+    type       : String enum { Entrada; Saída; };
+
+    @title: '{i18n>StockEntry-quantity}'
+    quantity   : Integer;
+
+    @title: '{i18n>StockEntry-date}'
+    date       : DateTime;
+
+    product    : Association to Product;
 }
 
-entity Supplier : cuid {
-    name : String;
-    contact : String;
+@label: '{i18n>Supplier}'
+entity Supplier : cuid, managed {
+    @title: '{i18n>Supplier-name}'
+    name     : String;
+
+    @title: '{i18n>Supplier-contact}'
+    contact  : String;
 }

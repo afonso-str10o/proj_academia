@@ -19,7 +19,8 @@ module.exports = cds.service.impl(async function () {
 
     // 4️⃣ Gera alerta se estiver abaixo do mínimo
     if (newStock < product.minStock) {
-      req.warn(`⚠️ O stock do produto '${product.name}' está abaixo do mínimo (${newStock})`);
+      const msg = req._.t('LowStockWarning', { name: product.name, stock: newStock });
+      req.warn(msg);
     }
   });
 });
