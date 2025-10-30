@@ -42,6 +42,7 @@ annotate InventoryService.Products with @(UI: {
         {Value: category},
         {Value: currentStock},
         {Value: minStock},
+        {Value: supplier},
         
     ]},
 });

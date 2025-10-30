@@ -16,6 +16,9 @@ entity Product : cuid, managed {
 
     @title: '{i18n>Product-minStock}'
     minStock      : Integer;
+
+    @title: '{i18n>Product-Supplier}'
+    supplier      : Composition of Supplier;
 }
 
 @label: '{i18n>StockEntry}'

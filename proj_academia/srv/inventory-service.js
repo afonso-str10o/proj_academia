@@ -1,4 +1,5 @@
 const cds = require('@sap/cds');
+const { SELECT, UPDATE } = require('@sap/cds/lib/ql/cds-ql');
 
 module.exports = cds.service.impl(async function () {
   const { Products, StockEntries } = this.entities; // obtém as entidades do serviço atual
@@ -23,4 +24,17 @@ module.exports = cds.service.impl(async function () {
       req.warn(msg);
     }
   });
+
+  this.on('changeStock', async (req) => {
+    const { amount } = req.data
+    const { ID } = req.params[0]
+
+    const product = await SELECT.one.from(Products).where({ ID: ID });
+    if (!product) return req.error(404, 'Product ${ID} not found')
+    
+    const newStock = amount
+    const stockEntry = await UPDATE(Products).set({currentStock : newStock}).where({ID})
+    
+    return stockEntry
+  })
 });
