@@ -40,5 +40,9 @@ annotate service.Products with @(
             Value : supplier.name,
         },
     ],
+    UI.SelectionFields : [
+        category,
+        supplier.name,
+    ],
 );
 
